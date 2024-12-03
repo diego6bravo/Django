@@ -1,0 +1,26 @@
+{% extends 'Figma/base.html' %}
+{% load static %}
+{% block principal %}
+<section>
+    <article>
+        <h1>Menú</h1>
+        <span>
+            <a href="{% url 'list' %}">Home</a> |
+            <a href="{% url 'figma_view' %}">Empleados</a> | 
+        </span>
+        <div>
+            <div>
+                <h2>
+                    {{ listado_dicc.name }}
+                </h2>
+                <p>
+                    {{ listado_dicc.email }}
+                </p>
+                <p>
+                    {{ listado_dicc.contact }}
+                </p>
+            </div>
+        </div>
+    </article>
+</section>
+{% endblock %}

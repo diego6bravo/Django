@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <article>
+        <h1>Menú</h1>
+        <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'agregar' %}" id="button">Añadir al Menú</a>
+        </div>
+        <div class="column">
+            {% if menuItem %}
+            {% for item in menuItem %}
+            <p>
+                <a href="{% url 'menu_item' item.pk %}">
+                    <span class="menu-name">{{ item.nombre }}</span>
+                </a>
+                <span class="menu-price">${{ item.precio }}.00</span>
+            </p>
+            {% endfor %}
+            {% else %}
+            <p>No hay productos disponibles en el menu actualmente</p>
+            {% endif %}
+        </div>
+</section>
+    </article>
+{% endblock %}

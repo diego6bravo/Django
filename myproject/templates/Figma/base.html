@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="style" href="{% static 'css/figma.css' %}" onload="this.rel = 'stylesheet'" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Maquetación Figma</title>
+
+</head>
+
+<body>
+
+
+    <!--Header-->
+    <header>
+        {% include 'Figma/partials/_header.html' %}
+    </header>
+
+
+    <!--Main-->
+    <main>
+        {% block principal %} {% endblock %}
+    </main>
+
+
+    <!--Footer-->
+    <footer>
+        {% include 'Figma/partials/_footer.html' %}
+    </footer>
+
+
+</body>
+
+</html>

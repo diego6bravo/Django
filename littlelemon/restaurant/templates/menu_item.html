@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <article>
+        <h1>Descripción Plato</h1>
+        <span>
+            <a href="{% url 'home' %}">Home</a> /
+            <a href="{% url 'menu' %}">Menu</a> /
+        </span>
+        <div class="row">
+            <div class="column">
+                <h2>
+                    {{ menu_item_dicc.nombre }}
+                </h2>
+                <p>
+                    {{ menu_item_dicc.descripcion }}
+                </p>
+                <p>
+                    <strong> Precio: ${{ menu_item_dicc.precio }}.00 </strong>
+                </p>
+            </div>
+            <div class="column">
+
+                <h2>Editar menú</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ edit_menu.as_p }}
+                    <button type="submit" id="button">Guardar Cambios</button>
+                </form>
+
+
+                <img src="{% static 'img/menu_items/'%}{{ menu_item_dicc.nombre }}.jpg"
+                    alt="{{ menu_item_dicc.nombre }}" />
+                <!-- <img src="{% static 'img/menu_items/'%}{{ slugified_name }}.jpg" alt="{{ menu_item.nombre }}" /> -->
+            </div>
+        </div>
+    </article>
+</section>
+{% endblock %}

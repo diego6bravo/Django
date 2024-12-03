@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Little Lemon Restaurante</title>
+    
+</head>
+
+<body>
+
+    <div class="ll"> Little Lemon {{name}}</div>
+    <div class="menu"> Menu<br> 
+        
+        <!-- Imagen -->
+        <img src="{% static 'img/dessert.jpg' %}" width="300"><br>
+        
+        <!-- Section Logueo Condicional -->
+        {% if user == "dgarcia" %} 
+        <h2>Bienvenido {{ user }}</h2> 
+        {% else %} 
+        <h2>Bienvenido desconocido. No tienes permiso de estar aquí</h2> 
+        {% endif %} </div>
+
+        <div class="menu-container">
+
+        <!-- Section Vista For -->
+        <ul> 
+            {% for lang in langs %}
+            <h1>List of Languages</h1> 
+            <li>{{ lang }}</li> 
+            {% endfor %} 
+        </ul> 
+
+        <!-- Section ejemplo vista duplas código plantilla -->
+        {% for items in tabla_productos %}
+        <p><div class="meal-type">Tabla Productos</div></p>
+        <p><div class="label">{{items.nombre}}</div></p>
+        <p><div class="low"><br>{{items.precio}}</div></p>
+        {% endfor %}
+
+        <!-- Section ejemplo vista trayendo de BD -->
+         <h2>Tabla desde BD</h2>
+         {%if productos%}
+         {%for items in productos%}
+         <p>{{items.producto}}: {{items.precio}}</p>
+         {%endfor%}
+         {%else%}
+         <p>No hay frutas perrin</p>
+         {%endif%}
+
+        <!-- Section starts: Tacos -->
+        <div class="section">
+
+            <h3 class="meal-type">Tacos</h2>
+                <!-- Item Starts -->
+                <div class="item-name">
+
+                    <div class="label">Carne Asada</div>
+                    <b class="low">$10</b>
+                    <div class="description"> Un taco bien perron y</div>
+                </div>
+
+                <div class="item-name">
+                    <div class="label">Al Pastor</div>
+                    <b>$10</b>
+                    <div class="description"> Un taco bien perron y</div>
+                </div>
+
+                <div class="item-name">
+                    <div class="label">Cabeza</div>
+                    <b class="low">$10</b>
+                    <div class="description">Un taco bien perron y</div>
+                </div>
+
+                <div class="item-name">
+                    <div class="label">Lengua</div>
+                    <b>$10</b>
+                    <div class="description">Un taco bien perron y</div>
+                </div>
+                <!-- Item Ends -->
+
+        </div>
+        <!-- Section ends: Tacos -->
+
+        <!-- Section starts: Burritos -->
+        <div class="section">
+            <h3 class="meal-type">Burritos</h2>
+                <!-- Item Starts -->
+                <div class="item-name">
+                    <div class="label">Chicken</div>
+                    <b>$12</b>
+                    <div class="description"> Un burrito bien perron y</div>
+                </div>
+
+                <div class="item-name">
+                    <div class="label">Bean and Cheese</div>
+                    <b>$12</b>
+                    <div class="description">Un burrito bien perron y</div>
+                </div>
+
+                <div class="item-name">
+                    <div class="label">Veggie</div>
+                    <b>$12</b>
+                    <div class="description">Un burrito bien perron y</div>
+                </div>
+                <!-- Item Ends -->
+
+        </div>
+        <!-- Section ends: Tacos -->
+
+    </div>
+
+</body>
+
+</html>

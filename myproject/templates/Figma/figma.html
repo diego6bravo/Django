@@ -1,0 +1,130 @@
+{% extends 'Figma/base.html' %}
+{% load static %}
+
+{% block principal %}
+
+<div id="slider">
+    <div class="container">
+        <h5>Best dental surgeons</h5>
+        <h1>25K+ STUDENTS</h1>
+        <h1>TRUST US</h1>
+        <h5 class="h5">Our goal is to make online education work for everyone</h5>
+        <div class="botones">
+            <a href="#">
+                <div class="boton-verde">Get Quote Now</div>
+            </a>
+            <a href="#">
+                <div class="boton-trans">More</div>
+            </a>
+        </div>
+    </div>
+    <div class="circle-girl">
+        <img src="{% static 'img/girl.png' %}" alt="Imagen de niña">
+    </div>
+</div>
+<section id="maindata">
+    <div class="container">
+        <!-- Vista Normal -->
+        <!-- { if empleados %} -->
+        <!-- { for listado in empleados %} -->
+        
+        <!-- Lista Genérica List View -->
+        <!-- { if object_list %} -->
+        <!-- { for listado in object_list %} -->
+
+        <!-- Lista Genérica List Detail (No Itera)-->
+        {% if detail_emp %}
+        <p>
+            <a href="{% url 'list_detalle' detail_emp.id %}">
+                <span class="fontdata">{{ detail_emp.name }}</span>
+            </a>
+            <span class="fontdata">{{ detail_emp.email }}</span>
+        </p>
+        <!-- { endfor %} -->
+        {% else %}
+        <p class="fontdata">No hay información</p>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Lista Genérica Update y Create Form -->
+<section>
+    <form method="post"> 
+        {% csrf_token %} 
+        {{ form.as_div }} 
+            <input type="submit" value="Guardar"> 
+        </form> 
+</section>
+
+<!-- Lista Genérica Delete Form -->
+<section>
+    <form method="post"> 
+        {% csrf_token %}   
+        
+            <p>Está seguro que quiere borrar "{{ object }}"?</p>   
+        
+            <input type="submit" value="Confirmar">   
+        </form> 
+</section>
+
+
+<section id="estadis">
+    <div class="container">
+        <h1>15K</h1>
+        <h5>Happy Customers</h5>
+    </div>
+    <div class="container">
+        <h1>150K</h1>
+        <h5>Monthly Visitors</h5>
+    </div>
+    <div class="container">
+        <h1>15</h1>
+        <h5>Countries Worldwide</h5>
+    </div>
+    <div class="container">
+        <h1>100+</h1>
+        <h5>Top Partners</h5>
+    </div>
+</section>
+
+<section id="cursos">
+    <h2>Get Quality Education</h2>
+    <div class="container">
+
+        <a href="#">
+            <div class="cajas">
+                <div class="circle-icon">
+                    <img src="{% static 'icon/icon cool-icon-n22.svg' %}" alt="">
+                </div><br>
+                <h5>Lifetime access</h5>
+                <p>_______</p>
+                <h6>The gradualaccumulation of<br>
+                    information about</h6>
+            </div>
+        </a>
+        <a href="#">
+            <div class="cajas">
+                <div class="circle-icon">
+                    <img src="{% static 'icon/icon cool-icon-n23.svg' %}" alt="">
+                </div><br>
+                <h5>Training Courses</h5>
+                <p>_______</p>
+                <h6>The gradual accumulation of<br>
+                    information about</h6>
+            </div>
+        </a>
+        <a href="#">
+            <div class="cajas">
+                <div class="circle-icon">
+                    <img src="{% static 'icon/icon cool-icon-n24.svg' %}" alt="">
+                </div><br>
+                <h5>Training Courses</h5>
+                <p>_______</p>
+                <h6>The gradual accumulation of<br>
+                    information about</h6>
+            </div>
+        </a>
+    </div>
+</section>
+
+{% endblock %}
